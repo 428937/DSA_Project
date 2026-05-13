@@ -11,7 +11,7 @@ public class FavoriListesiPanel extends JPanel {
     private DefaultListModel<Emlak> favoriModel;
     private JList<Emlak> favoriListesi;
     private JLabel favoriSayisiLabel;
-    private JButton kaldir Butonu;
+    private JButton kaldirlButonu;
     private JButton temizleButonu;
     
     private EmlakYoneticisi yonetici;
@@ -28,7 +28,7 @@ public class FavoriListesiPanel extends JPanel {
         setBackground(new Color(255, 250, 240));
         
         arayuzuOlustur();
-        listeyi Yenile();
+        listeyiYenile();
     }
     
     // Arayüzü oluştur
@@ -78,13 +78,13 @@ public class FavoriListesiPanel extends JPanel {
         JPanel altPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 10));
         altPanel.setBackground(new Color(255, 250, 240));
         
-        kaldir Butonu = new JButton("Favorilerden Çıkar");
-        kaldir Butonu.setFont(new Font("Arial", Font.BOLD, 11));
-        kaldir Butonu.setBackground(new Color(244, 67, 54));
-        kaldir Butonu.setForeground(Color.WHITE);
-        kaldir Butonu.setFocusPainted(false);
-        kaldir Butonu.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        kaldir Butonu.addActionListener(e -> kaldir IslemButonu());
+        kaldirlButonu = new JButton("Favorilerden Çıkar");
+        kaldirlButonu.setFont(new Font("Arial", Font.BOLD, 11));
+        kaldirlButonu.setBackground(new Color(244, 67, 54));
+        kaldirlButonu.setForeground(Color.WHITE);
+        kaldirlButonu.setFocusPainted(false);
+        kaldirlButonu.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        kaldirlButonu.addActionListener(e -> kaldirIslem());
         
         temizleButonu = new JButton("Tümünü Temizle");
         temizleButonu.setFont(new Font("Arial", Font.BOLD, 11));
@@ -94,19 +94,19 @@ public class FavoriListesiPanel extends JPanel {
         temizleButonu.setCursor(new Cursor(Cursor.HAND_CURSOR));
         temizleButonu.addActionListener(e -> temizleIslem());
         
-        altPanel.add(kaldir Butonu);
+        altPanel.add(kaldirlButonu);
         altPanel.add(temizleButonu);
         
         add(altPanel, BorderLayout.SOUTH);
     }
     
     // Favoriden çıkar işlemi
-    private void kaldir IslemButonu() {
+    private void kaldirIslem() {
         Emlak secili = favoriListesi.getSelectedValue();
         if (secili != null) {
             yonetici.favoriKaldir(secili.getId());
-            listeyi Yenile();
-            anaEkran.listeyi Yenile();
+            listeyiYenile();
+            anaEkran.listeyiYenile();
             JOptionPane.showMessageDialog(this, 
                 "İlan favorilerden çıkarıldı.", 
                 "Başarılı", 
@@ -138,8 +138,8 @@ public class FavoriListesiPanel extends JPanel {
             for (int i = 0; i < favoriModel.getSize(); i++) {
                 yonetici.favoriKaldir(favoriModel.get(i).getId());
             }
-            listeyi Yenile();
-            anaEkran.listeyi Yenile();
+            listeyiYenile();
+            anaEkran.listeyiYenile();
             JOptionPane.showMessageDialog(this, 
                 "Tüm favoriler temizlendi.", 
                 "Başarılı", 
@@ -148,7 +148,7 @@ public class FavoriListesiPanel extends JPanel {
     }
     
     // Listeyi yenile
-    public void listeyi Yenile() {
+    public void listeyiYenile() {
         favoriModel.clear();
         List<Emlak> favoriler = yonetici.favorileriGetir();
         
