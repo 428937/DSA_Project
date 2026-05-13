@@ -154,7 +154,7 @@ public class AramaFiltrelePanel extends JPanel {
         oranButonu.setForeground(Color.WHITE);
         oranButonu.setFocusPainted(false);
         oranButonu.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        oranButonu.addActionListener(e -> siralaOoranButonu);
+        oranButonu.addActionListener(e -> siralaOrana());
         
         add(siralamaPaneli, BorderLayout.CENTER);
         
