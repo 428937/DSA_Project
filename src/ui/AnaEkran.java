@@ -13,7 +13,7 @@ import java.util.List;
 public class AnaEkran extends JFrame {
     private EmlakYoneticisi yonetici;
     private JTable emlakTablosu;
-    private DefaultTableModel tablo Model;
+    private DefaultTableModel tabloModel;
     private JLabel toplamBilgiLabel;
     private JLabel secilenLabel;
     private JButton ekleButonu;
