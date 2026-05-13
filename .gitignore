@@ -1,24 +1,77 @@
-# Compiled class file
+# IDE ve Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.iml
+.DS_Store
+
+# Derlenmiş dosyalar
 *.class
-
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
 *.jar
 *.war
-*.nar
 *.ear
 *.zip
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+# Derleme çıktısı
+bin/
+build/
+out/
+dist/
+target/
+*.o
+*.so
+*.dylib
+
+# Maven
+pom.xml.tag
+pom.xml.releaseBackup
+release.properties
+dependency-reduced-pom.xml
+.m2repository/
+
+# Gradle
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+
+# Proje dosyaları
+*.log
+*.txt
+!README.md
+!LICENSE
+
+# Veri dosyaları
+data/ilanlar.txt
+
+# Geçici dosyalar
+*.tmp
+*.bak
+*.backup
+.cache/
+.temp/
+
+# İşletim sistemi dosyaları
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Çalışma alanı ayarları
+.classpath
+.project
+.settings/
+*.launch
+
+# Node ve npm (eğer kullanılıyorsa)
+node_modules/
+npm-debug.log
+
+# Python (eğer kullanılıyorsa)
+__pycache__/
+*.py[cod]
+*$py.class
