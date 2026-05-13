@@ -43,7 +43,7 @@ DSA_Project/
 │   │   ├── Emlak.java                 # Property model class
 │   │   ├── BaglıListe.java            # Linked list implementation
 │   │   ├── Kuyruk.java                # Queue implementation
-│   │   ├── Yigin.java                 # Stack implementation
+│   │   ├── Yıgınn.java                 # Stack implementation
 │   │   ├── IkiliAramaAgaci.java       # Binary search tree implementation
 │   │   └── AramaVeSiralamaAlg.java    # Search and sort algorithms
 │   ├── ui/
