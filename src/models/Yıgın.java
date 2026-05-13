@@ -55,9 +55,12 @@ public class Yıgın<T> implements Serializable, Iterable<T> {
         return tepe.veri;
     }
     
-    // Yıgın boş mu kontrolü
+    // Yığın boş mu kontrolü - O(1)
     public boolean bosMu() {
-         mı kontrolü - O(n)
+        return boyut == 0;
+    }
+
+    // Yığında belirli bir eleman var mı? - O(n)
     public boolean içeriyor(T veri) {
         Dugum mevcut = tepe;
         while (mevcut != null) {
