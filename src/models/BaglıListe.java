@@ -39,7 +39,7 @@ public class BaglıListe<T> implements Serializable, Iterable<T> {
     public void sonaEkle(T veri) {
         Dugum yeniDugum = new Dugum(veri);
         
-        if (bas == null) {           // Liste boşsa
+        if (bas == null) {// Liste boşsa
             bas = yeniDugum;
         } else {
             Dugum mevcut = bas;
