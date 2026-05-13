@@ -94,11 +94,7 @@ public class AnaEkran extends JFrame {
         
         // Orta panel - Tabbed pane
         tabPanel = new JTabbedPane();
-        tabPanel.setFont(new Font("Arial", Font.BOLD, 12));
-        
-        // Tab 1 - Ana Liste
-        JPanel anaListePanel = new JPanel(new BorderLayout(10, 10));
-        tablo Model = new DefaultTableModel(new String[]{"ID", "Ad", "Konum", "Fiyat (₺)", 
+        tabPanel.setFont", "Ad", "Konum", "Fiyat (₺)", 
             "Alan (m²)", "Tip", "Oran (₺/m²)"}, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -106,13 +102,13 @@ public class AnaEkran extends JFrame {
             }
         };
         
-        emlakTablosu = new JTable(tablo Model);
+        emlakTablosu = new JTable(tabloModel);
         emlakTablosu.setFont(new Font("Arial", Font.PLAIN, 11));
         emlakTablosu.setRowHeight(25);
         emlakTablosu.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         emlakTablosu.getSelectionModel().addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting() && emlakTablosu.getSelectedRow() >= 0) {
-                int id = (int) tablo Model.getValueAt(emlakTablosu.getSelectedRow(), 0);
+                int id = (int) tabloModel.getValueAt(emlakTablosu.getSelectedRow(), 0);
                 secilenEmlak = yonetici.emlakBul(id);
                 guncelleSeciliLabel();
             }
@@ -153,11 +149,7 @@ public class AnaEkran extends JFrame {
         // Tuş kısayolları
         tuşKısayollariniYükle();
         
-        // Listeyi başta doldur
-        listeyi Yenile();
-    }
-    
-    // Yeni buton oluştur
+        // Listeoluştur
     private JButton yeniButonOlustur(String metin, Color renk, java.awt.event.ActionListener islem) {
         JButton buton = new JButton(metin);
         buton.setFont(new Font("Arial", Font.BOLD, 11));
@@ -200,7 +192,7 @@ public class AnaEkran extends JFrame {
             if (yonetici.emlakEkle(yeniEmlak.getAd(), yeniEmlak.getKonum(), 
                 yeniEmlak.getFiyat(), yeniEmlak.getAlan(), 
                 yeniEmlak.getTip(), yeniEmlak.getAciklama())) {
-                listeyi Yenile();
+                listeyiYenile();
                 verileriBilgisiniGuncelle();
                 JOptionPane.showMessageDialog(this, 
                     "İlan başarıyla eklendi.", 
@@ -231,7 +223,7 @@ public class AnaEkran extends JFrame {
             yonetici.emlakGuncelle(secilenEmlak.getId(), secilenEmlak.getAd(), 
                 secilenEmlak.getKonum(), secilenEmlak.getFiyat(), secilenEmlak.getAlan(), 
                 secilenEmlak.getTip(), secilenEmlak.getAciklama());
-            listeyi Yenile();
+            listeyiYenile();
             verileriBilgisiniGuncelle();
             JOptionPane.showMessageDialog(this, 
                 "İlan başarıyla güncellendi.", 
@@ -258,7 +250,7 @@ public class AnaEkran extends JFrame {
         if (sonuc == JOptionPane.YES_OPTION) {
             yonetici.emlakSil(secilenEmlak.getId());
             secilenEmlak = null;
-            listeyi Yenile();
+            listeyiYenile();
             verileriBilgisiniGuncelle();
             JOptionPane.showMessageDialog(this, 
                 "İlan başarıyla silindi.", 
@@ -283,8 +275,8 @@ public class AnaEkran extends JFrame {
             yonetici.favoriEkle(secilenEmlak.getId());
         }
         
-        listeyi Yenile();
-        favoriPanel.listeyi Yenile();
+        listeyiYenile();
+        favoriPanel.listeyiYenile();
         verileriBilgisiniGuncelle();
     }
     
@@ -299,9 +291,9 @@ public class AnaEkran extends JFrame {
         }
         
         yonetici.gerialYap();
-        listeyi Yenile();
-        favoriPanel.listeyi Yenile();
-        aramaPanel.listeyi Yenile();
+        listeyiYenile();
+        favoriPanel.listeyiYenile();
+        aramaPanel.listeyiYenile();
         verileriBilgisiniGuncelle();
     }
     
@@ -316,18 +308,18 @@ public class AnaEkran extends JFrame {
         }
         
         yonetici.yineleYap();
-        listeyi Yenile();
-        favoriPanel.listeyi Yenile();
-        aramaPanel.listeyi Yenile();
+        listeyiYenile();
+        favoriPanel.listeyiYenile();
+        aramaPanel.listeyiYenile();
         verileriBilgisiniGuncelle();
     }
     
     // Listeyi yenile
-    public void listeyi Yenile() {
-        tablo Model.setRowCount(0);
+    public void listeyiYenile() {
+        tabloModel.setRowCount(0);
         
         for (Emlak emlak : yonetici.tumEmlaklar()) {
-            tablo Model.addRow(new Object[]{
+            tabloModel.addRow(new Object[]{
                 emlak.getId(),
                 emlak.getAd(),
                 emlak.getKonum(),
@@ -360,9 +352,9 @@ public class AnaEkran extends JFrame {
         secilenEmlak = emlak;
         guncelleSeciliLabel();
         
-        // Tablodan seçili satırı işaretle
-        for (int i = 0; i < tablo Model.getRowCount(); i++) {
-            if ((int) tablo Model.getValueAt(i, 0) == emlak.getId()) {
+        // Tablodan seçili satır
+        for (int i = 0; i < tabloModel.getRowCount(); i++) {
+            if ((int) tabloModel.getValueAt(i, 0) == emlak.getId()) {
                 emlakTablosu.setRowSelectionInterval(i, i);
                 break;
             }
