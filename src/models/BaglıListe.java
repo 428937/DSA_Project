@@ -34,8 +34,19 @@ public class BaglıListe<T> implements Serializable, Iterable<T> {
         bas = yeniDugum;
         boyut++;
     }
-    
-    // Listenin sonuna eleman ekleme - O(cut.sonraki = yeniDugum;
+   
+    // Listenin sonuna eleman ekleme - O(n)
+    public void sonaEkle(T veri) {
+        Dugum yeniDugum = new Dugum(veri);
+        
+        if (bas == null) {           // Liste boşsa
+            bas = yeniDugum;
+        } else {
+            Dugum mevcut = bas;
+            while (mevcut.sonraki != null) {
+                mevcut = mevcut.sonraki;
+            }
+            mevcut.sonraki = yeniDugum;
         }
         boyut++;
     }
