@@ -412,21 +412,58 @@ public class EmlakUygulamasi extends JFrame {
     }
 
     // Sıralama butonları için
+   // Sıralama butonları için (Jvdroid uyumlu)
     private void sirala(String kriter) {
-        if (emlakListesi.boyut() == 0) return;
+        if (emlakListesi.boyut() == 0) {
+            JOptionPane.showMessageDialog(this, "Sıralanacak emlak yok!");
+            return;
+        }
+
+        // Listeyi diziye çevir
         Emlak[] dizi = new Emlak[emlakListesi.boyut()];
         Dugum<Emlak> gec = emlakListesi.basDugum();
         int i = 0;
-        while (gec != null) { dizi[i++] = gec.veri; gec = gec.sonraki; }
+        while (gec != null) {
+            dizi[i++] = gec.veri;
+            gec = gec.sonraki;
+        }
 
-        java.util.Comparator<Emlak> karsilastirici = switch (kriter) {
-            case "fiyat" -> (a, b) -> Double.compare(a.fiyat, b.fiyat);
-            case "metrekare" -> (a, b) -> Integer.compare(a.metrekare, b.metrekare);
-            case "oda" -> (a, b) -> Integer.compare(a.odaSayisi, b.odaSayisi);
-            default -> (a, b) -> 0;
-        };
+        // Karşılaştırıcı oluştur (eski Java uyumlu)
+        java.util.Comparator<Emlak> karsilastirici;
+
+        if (kriter.equals("fiyat")) {
+            karsilastirici = new java.util.Comparator<Emlak>() {
+                public int compare(Emlak a, Emlak b) {
+                    return Double.compare(a.fiyat, b.fiyat);
+                }
+            };
+        } 
+        else if (kriter.equals("metrekare")) {
+            karsilastirici = new java.util.Comparator<Emlak>() {
+                public int compare(Emlak a, Emlak b) {
+                    return Integer.compare(a.metrekare, b.metrekare);
+                }
+            };
+        } 
+        else if (kriter.equals("oda")) {
+            karsilastirici = new java.util.Comparator<Emlak>() {
+                public int compare(Emlak a, Emlak b) {
+                    return Integer.compare(a.odaSayisi, b.odaSayisi);
+                }
+            };
+        } 
+        else {
+            karsilastirici = new java.util.Comparator<Emlak>() {
+                public int compare(Emlak a, Emlak b) {
+                    return Integer.compare(a.id, b.id);
+                }
+            };
+        }
+
         hizliSiralama(dizi, 0, dizi.length - 1, karsilastirici);
-        emlakListesi.dizidenYukle(dizi);  // Bağlı listeyi sıralı dizi ile güncelle
+        
+        // Bağlı listeyi sıralı haliyle güncelle
+        emlakListesi.dizidenYukle(dizi);
         tabloyuGuncelle();
     }
 
