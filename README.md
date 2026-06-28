@@ -2,7 +2,7 @@
 
 A comprehensive Data Structures and Algorithms project implementing a real estate listing application with advanced searching, filtering, sorting, and management features using various data structures learned in DSA course.
 
-## Project Overview
+### Project Overview
 
 This application demonstrates the practical implementation of fundamental data structures and algorithms in a real-world scenario. Users can manage property listings, search, filter, sort, and maintain a favorites list.
 
