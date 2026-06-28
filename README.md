@@ -6,10 +6,10 @@ A comprehensive Data Structures and Algorithms project implementing a real estat
 
 This application demonstrates the practical implementation of fundamental data structures and algorithms in a real-world scenario. Users can manage property listings, search, filter, sort, and maintain a favorites list.
 
-### Features
+## Features
 
 - **Property Management**: Add, update, delete, and view property listings
-- **Advanced Search**: Search properties by name, location, and price range
+- **Advanced Search**: Search properties by name, location, and price range.
 - **Filtering**: Filter properties by property type, location, and price range
 - **Sorting**: Sort properties by price (ascending/descending), area, price-to-area ratio
 - **Favorites System**: Add/remove properties to/from favorites list with persistent storage
