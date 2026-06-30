@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-// Yeni İlan Ekleme Dialog Penceres
+// Yeni İlan Ekleme Diyalog Penceresi
 public class IlanEkleDialog extends JDialog {
     private JTextField adField;
     private JTextField konumField;
