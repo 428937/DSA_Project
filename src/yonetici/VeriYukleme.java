@@ -5,7 +5,7 @@ import models.BaglıListe;
 import java.io.*;
 import java.util.StringTokenizer;
 
-// Veri Yükleme ve Kaydetme işlemleri için
+// Veri Yükleme ve Kaydetme işlemleri
 public class VeriYukleme {
     private static final String VERI_DOSYASI = "data/ilanlar.txt";
     
