@@ -96,7 +96,7 @@ public class VeriYukleme {
         );
     }
     
-    // Dosyayı temizle
+    // Dosyayı temizleme kısmı
     public static boolean temizle() {
         File dosya = new File(VERI_DOSYASI);
         return dosya.delete();
