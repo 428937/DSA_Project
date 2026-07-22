@@ -19,7 +19,7 @@ public class IlanGuncelleDialog extends JDialog {
     private Emlak emlak;
     private boolean kaydedildi;
     
-    // Kurucu metot
+    // Kurucu meto
     public IlanGuncelleDialog(JFrame parent, Emlak emlak) {
         super(parent, "İlan Güncelle", true);
         this.emlak = emlak;
