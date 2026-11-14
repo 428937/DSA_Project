@@ -1,4 +1,4 @@
-# DSA_Project: Real Estate Listing Application
+## DSA_Project: Real Estate Listing Application
 
 A comprehensive Data Structures and Algorithms project implementing a real estate listing application with advanced searching, filtering, sorting, and management features using various data structures learned in DSA course.
 
